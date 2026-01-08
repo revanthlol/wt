@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Resume Form</title>
+</head>
+
+<body style="font-family: Arial; padding: 20px;">
+
+    <div style="text-align: center;">
+        <nav>
+            <a href="index.html"><button style="padding: 10px 20px;">Home</button></a> |
+            <a href="ass1.html"><button style="padding: 10px 20px;">Assignment 1</button></a> |
+            <a href="ass2.html"><button style="padding: 10px 20px;">Assignment 2</button></a> |
+            <a href="animal.html"><button style="padding: 10px 20px;">Animals</button></a> |
+            <a href="resume.html"><button style="padding: 10px 20px;">Resume</button></a>
+        </nav>
+    </div>
+
+    <hr>
+
+    <h2 style="text-align: center;"><u>FULL STUDENT RESUME REGISTRATION</u></h2>
+
+    <form action="resume_submit.html" method="post" enctype="multipart/form-data">
+
+        <table border="1" align="center" cellpadding="8" style="width: 75%; border-collapse: collapse;">
+
+            <!-- 1. PERSONAL PROFILE -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">1. PERSONAL PROFILE</th>
+            </tr>
+            <tr>
+                <td><label for="fname"><b>Full Name:</b></label></td>
+                <td><input type="text" id="fname" name="fname" size="40" required></td>
+            </tr>
+            <tr>
+                <td><label for="dob"><b>Date of Birth:</b></label></td>
+                <td><input type="date" id="dob" name="dob" required></td>
+            </tr>
+            <tr>
+                <td><b>Gender:</b></td>
+                <td>
+                    <input type="radio" name="gender" value="Male" required> Male
+                    <input type="radio" name="gender" value="Female"> Female
+                    <input type="radio" name="gender" value="Other"> Other
+                </td>
+            </tr>
+            <tr>
+                <td><label for="nation"><b>Nationality:</b></label></td>
+                <td><input type="text" id="nation" name="nation"></td>
+            </tr>
+
+            <!-- 2. CONTACT -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">2. CONTACT & SOCIAL MEDIA</th>
+            </tr>
+            <tr>
+                <td><label for="phone"><b>Mobile Number:</b></label></td>
+                <td><input type="tel" id="phone" name="phone" placeholder="+91 0000000000" required></td>
+            </tr>
+            <tr>
+                <td><label for="email"><b>Email ID:</b></label></td>
+                <td><input type="email" id="email" name="email" size="30" required></td>
+            </tr>
+            <tr>
+                <td><label for="linkedin"><b>LinkedIn URL:</b></label></td>
+                <td><input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/user"></td>
+            </tr>
+            <tr>
+                <td><label for="github"><b>GitHub Profile:</b></label></td>
+                <td><input type="url" id="github" name="github" placeholder="https://github.com/user"></td>
+            </tr>
+
+            <!-- 3. ACADEMICS -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">3. ACADEMIC QUALIFICATIONS</th>
+            </tr>
+            <tr>
+                <td><b>Highest Qualification:</b></td>
+                <td>
+                    <select name="degree">
+                        <option value="BTech">B.Tech / B.E.</option>
+                        <option value="MTech">M.Tech</option>
+                        <option value="BSc">B.Sc / M.Sc</option>
+                        <option value="MBA">MBA</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="spec"><b>Specialization:</b></label></td>
+                <td><input type="text" id="spec" name="spec"></td>
+            </tr>
+            <tr>
+                <td><label for="college"><b>College / University:</b></label></td>
+                <td><input type="text" id="college" name="college" size="40"></td>
+            </tr>
+            <tr>
+                <td><b>Year of Passing:</b></td>
+                <td><input type="number" name="yop" min="2010" max="2035"></td>
+            </tr>
+
+            <!-- 4. SKILLS -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">4. SKILLS & LANGUAGES</th>
+            </tr>
+            <tr>
+                <td><b>Technical Skills:</b></td>
+                <td>
+                    <input type="checkbox" name="tech_skills" value="C"> C
+                    <input type="checkbox" name="tech_skills" value="Java"> Java
+                    <input type="checkbox" name="tech_skills" value="Python"> Python
+                    <input type="checkbox" name="tech_skills" value="SQL"> SQL
+                    <input type="checkbox" name="tech_skills" value="AWS"> AWS
+                </td>
+            </tr>
+            <tr>
+                <td><b>Soft Skills:</b></td>
+                <td>
+                    <input type="checkbox" name="soft_skills" value="Leadership"> Leadership
+                    <input type="checkbox" name="soft_skills" value="Communication"> Communication
+                    <input type="checkbox" name="soft_skills" value="ProblemSolving"> Problem Solving
+                </td>
+            </tr>
+            <tr>
+                <td><b>Languages Known:</b></td>
+                <td>
+                    <input type="checkbox" name="languages" value="English"> English
+                    <input type="checkbox" name="languages" value="Hindi"> Hindi
+                    <input type="checkbox" name="languages" value="Telugu"> Telugu
+                </td>
+            </tr>
+
+            <!-- 5. PROJECTS -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">5. PROJECTS & CERTIFICATIONS</th>
+            </tr>
+            <tr>
+                <td><label for="project"><b>Major Project Title:</b></label></td>
+                <td><input type="text" id="project" name="project" size="40"></td>
+            </tr>
+            <tr>
+                <td><label for="proj_desc"><b>Project Description:</b></label></td>
+                <td><textarea id="proj_desc" name="proj_desc" rows="3" cols="45"></textarea></td>
+            </tr>
+            <tr>
+                <td><b>Certifications:</b></td>
+                <td><input type="text" name="certs" size="40"></td>
+            </tr>
+
+            <!-- 6. ADDITIONAL -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">6. ADDITIONAL DETAILS</th>
+            </tr>
+            <tr>
+                <td><b>Hobbies:</b></td>
+                <td>
+                    <input type="checkbox" name="hobbies" value="Coding"> Coding
+                    <input type="checkbox" name="hobbies" value="Reading"> Reading
+                    <input type="checkbox" name="hobbies" value="Sports"> Sports
+                    <input type="checkbox" name="hobbies" value="Music"> Music
+                </td>
+            </tr>
+            <tr>
+                <td><b>Professional Reference:</b></td>
+                <td><input type="text" name="reference" size="40"></td>
+            </tr>
+            <tr>
+                <td><b>Declaration:</b></td>
+                <td>
+                    <input type="checkbox" name="declaration" required>
+                    I hereby declare that the above details are true.
+                </td>
+            </tr>
+
+            <!-- 7. ATTACHMENTS -->
+            <tr style="background-color: #ddd;">
+                <th colspan="2">7. ATTACHMENTS</th>
+            </tr>
+            <tr>
+                <td><b>Upload Resume (PDF):</b></td>
+                <td><input type="file" name="resume"></td>
+            </tr>
+            <tr>
+                <td><b>Upload Profile Photo:</b></td>
+                <td><input type="file" name="photo"></td>
+            </tr>
+
+            <!-- BUTTONS (NO JS) -->
+            <tr style="background-color: #eee;">
+                <td colspan="2" align="center">
+                    <input type="submit" value="SUBMIT & VIEW RESUME" style="padding: 10px 20px;">
+                    &nbsp;&nbsp;
+                    <input type="reset" value="CLEAR ALL" style="padding: 10px 20px;">
+                </td>
+            </tr>
+
+        </table>
+    </form>
+
+</body>
+</html>
