@@ -29,16 +29,15 @@
     </style>
 </head>
 <body>
-    <div style="text-align: center;">
-        <nav>
-            <a href="index.html"><button style="padding: 10px 20px;">Home</button></a> |
-            <a href="ass1.html"><button style="padding: 10px 20px;">Assignment 1</button></a> |
-            <a href="ass2.html"><button style="padding: 10px 20px;">Assignment 2</button></a> |
-            <a href="animal.html"><button style="padding: 10px 20px;">Animals</button></a> |
-            <a href="resume.html"><button style="padding: 10px 20px;">Resume</button></a>
-        </nav>
-    </div>
-    <hr>
+    <div id="navbar"></div>
+    <script>
+      fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
     <h2><u>STUDENT DETAILS</u></h2>
     <table>
         <tr style="background-color: #4da6ff; color: white;">

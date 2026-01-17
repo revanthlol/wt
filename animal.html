@@ -2,30 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANIMALS</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Headline:wght@200..700&family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
 </head>
 
-<link rel="stylesheet" href="style.css">
+<body style="font-family: Arial;">
+    <div id="navbar"></div>
+    <script>
+      fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Headline:wght@200..700&family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
-    <div style="text-align: center;">
-        <nav>
-            <a href="index.html"><button style="padding: 10px 20px;">Home</button></a> |
-            <a href="ass1.html"><button style="padding: 10px 20px;">Assignment 1</button></a> |
-            <a href="ass2.html"><button style="padding: 10px 20px;">Assignment 2</button></a> |
-            <a href="animal.html"><button style="padding: 10px 20px;">Animals</button></a> |
-            <a href="resume.html"><button style="padding: 10px 20px;">Resume</button></a>
-        </nav>
-    </div>
-    <hr>
-<body>
-
-    <div><font face="Stack Sans Notch" color="blue" size="10"><p>Animals</p></font></div>
-    <font face="Roboto" color="blue" size="5"><p>Explore various animals and their characteristics.</p></font>
+    <div><font face="Stack Sans Notch" color="blue"><h1>Animals</h1></font></div>
+    <font face="Roboto" color="blue"><p>Explore various animals and their characteristics.</p></font>
     <ul>
         <li><font face="Roboto" color="black" size="4">Lion</font></li>
         <li><font face="Roboto" color="black" size="4">Tiger</font></li>

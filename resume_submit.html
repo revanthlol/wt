@@ -5,7 +5,15 @@
 </head>
 
 <body style="font-family: Arial; padding: 40px;">
-
+    <div id="navbar"></div>
+        <script>
+          fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("navbar").innerHTML = data;
+            });
+        </script>
+        
     <h1 style="text-align: center;">STUDENT RESUME</h1>
     <hr>
 

@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Loyola Academy Homepage - Expanded</title>
+    <title>Loyola Academy Homepage</title>
 </head>
 <body bgcolor="#f4f4f4" style="font-family: Arial;">
 
-    <div style="text-align: center;">
-        <nav>
-            <a href="index.html"><button style="padding: 10px 20px;">Home</button></a> |
-            <a href="ass1.html"><button style="padding: 10px 20px;">Assignment 1</button></a> |
-            <a href="ass2.html"><button style="padding: 10px 20px;">Assignment 2</button></a> |
-            <a href="animal.html"><button style="padding: 10px 20px;">Animals</button></a> |
-            <a href="resume.html"><button style="padding: 10px 20px;">Resume</button></a>
-        </nav>
-    </div>
-    <hr>
-
+    <div id="navbar"></div>
+    <script>
+      fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+    
     <table width="100%" border="1" cellspacing="0" cellpadding="10" bordercolor="#005780">
         
         <tr bgcolor="#005780">

@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Resume Form</title>
 </head>
-
-<body style="font-family: Arial; padding: 20px;">
-
-    <div style="text-align: center;">
-        <nav>
-            <a href="index.html"><button style="padding: 10px 20px;">Home</button></a> |
-            <a href="ass1.html"><button style="padding: 10px 20px;">Assignment 1</button></a> |
-            <a href="ass2.html"><button style="padding: 10px 20px;">Assignment 2</button></a> |
-            <a href="animal.html"><button style="padding: 10px 20px;">Animals</button></a> |
-            <a href="resume.html"><button style="padding: 10px 20px;">Resume</button></a>
-        </nav>
-    </div>
-
-    <hr>
-
+<body style="font-family: Arial;">
+    <div id="navbar"></div>
+        <script>
+          fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("navbar").innerHTML = data;
+            });
+        </script>
     <h2 style="text-align: center;"><u>FULL STUDENT RESUME REGISTRATION</u></h2>
 
     <form action="resume_submit.html" method="post" enctype="multipart/form-data">
@@ -195,6 +191,5 @@
 
         </table>
     </form>
-
 </body>
 </html>

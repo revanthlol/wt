@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selectors</title>
+    <style>
+        /*Universal Selector*/
+        *{
+           font-family: Arial;
+        }
+
+        /*Element Selector*/
+        p{
+            color :aqua;
+        }
+
+        /*ID Selector */
+        #special{
+            color: red;
+            font-weight: bolder;
+        }
+
+        /*Class Selector*/
+        .center{
+            text-align: center;
+            color: blue;
+        }
+
+        /*Group Selector*/
+        h1 , h2{
+            text-decoration: wavy;
+        }
+    </style>
+</head>
+<body >
+    <div id="navbar" ></div>
+        <script>
+          fetch("navbar.html")
+            .then(response => response.text())
+            .then(data => {
+              document.getElementById("navbar").innerHTML = data;
+            });
+        </script>
+
+    <h1 class="center">CSS Selectors Example</h1>
+    <h1>Group Selector h1</h1>
+    <h2>Group Selector h2</h2>
+    <p>Element Selector</p>
+    <p id="special">ID Selector applied</p>
+    <p class="center">Class Selector applied</p>
+
+
+</body>
+</html>
+

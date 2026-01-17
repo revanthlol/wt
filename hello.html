@@ -6,6 +6,15 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <div id="navbar"></div>
+<script>
+  fetch("navbar.html")
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById("navbar").innerHTML = data;
+    });
+</script>
+    <h1>Hello World!</h1>
+    <p>This is a sample hello world HTML page.</p>
 </body>
 </html>
