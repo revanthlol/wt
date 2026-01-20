@@ -3,54 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Selectors</title>
+    <title>Selectors Assignment</title>
     <style>
-        /*Universal Selector*/
-        *{
-           font-family: Arial;
+        /* 1. Universal Selector (*) 
+           Sets the font for everything. */
+        * {
+           font-family: Arial, sans-serif;
         }
 
-        /*Element Selector*/
-        p{
-            color :aqua;
-        }
-
-        /*ID Selector */
-        #special{
-            color: red;
-            font-weight: bolder;
-        }
-
-        /*Class Selector*/
-        .center{
+        /* 2. Group Selector (h1, h2) 
+           Styles both headers at the same time. */
+        h1, h2 {
+            text-decoration: underline;
+            color: purple;
             text-align: center;
-            color: blue;
         }
 
-        /*Group Selector*/
-        h1 , h2{
-            text-decoration: wavy;
+        /* 3. Element Selector (p) 
+           Styles all paragraphs blue. */
+        p {
+            color: blue;
+            font-size: 18px;
+        }
+
+        /* 4. Class Selector (.demo-box) 
+           Adds a green border. Used multiple times. */
+        .demo-box {
+            border: 5px solid green;
+            padding: 20px;
+            margin: 20px;
+            background-color: #eaffea; /* Light green background */
+            color: black; /* Overrides the blue paragraph color if inside */
+        }
+
+        /* 5. ID Selector (#unique-box) 
+           Adds a red background. Used only once. */
+        #unique-box {
+            background-color: red;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            font-weight: bold;
+            text-align: center;
         }
     </style>
 </head>
-<body >
-    <div id="navbar" ></div>
-        <script>
-          fetch("navbar.html")
-            .then(response => response.text())
-            .then(data => {
-              document.getElementById("navbar").innerHTML = data;
-            });
-        </script>
+<body style="margin: 0;">
 
-    <h1 class="center">CSS Selectors Example</h1>
-    <h1>Group Selector h1</h1>
-    <h2>Group Selector h2</h2>
-    <p>Element Selector</p>
-    <p id="special">ID Selector applied</p>
-    <p class="center">Class Selector applied</p>
+    <div id="navbar"></div>
+    <script>
+        fetch("navbar.html")
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
 
+    <h1>I am an H1 Tag</h1>
+    <h2>I am an H2 Tag</h2>
+    <p style="text-align: center; color: black;">(We both have the same purple color and underline because of the <b>Group Selector</b>)</p>
+    
+    <hr>
+
+    <p>I am a standard Paragraph tag.</p>
+    <p>I am blue because the <b>Element Selector (p)</b> targets all paragraphs.</p>
+
+    <hr>
+
+    <div class="demo-box">
+        <h3>Class Selector Example 1</h3>
+        I have a green border because I use the class <b>.demo-box</b>.
+    </div>
+
+    <div class="demo-box">
+        <h3>Class Selector Example 2</h3>
+        I look exactly the same because I use the same class <b>.demo-box</b>. 
+        Classes are for repeated styles.
+    </div>
+
+    <hr>
+
+    <div id="unique-box">
+        ID Selector Example<br>
+        I am red and bold because I use the ID <b>#unique-box</b>.<br>
+        IDs are unique and only used once per page.
+    </div>
 
 </body>
 </html>
-

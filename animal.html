@@ -4,12 +4,82 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANIMALS</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Stack+Sans+Headline:wght@200..700&family=Stack+Sans+Notch:wght@200..700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Stack+Sans+Notch:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* 1. RESET BODY - Fixes the Navbar Spacing Issue */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;   /* Removes white gap around navbar */
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* 2. MAIN CONTENT CONTAINER - Adds spacing only for the page content */
+        .main-content {
+            padding: 20px;
+            max-width: 1200px; /* Prevents it from getting too wide on huge screens */
+            margin: 0 auto;    /* Centers the whole page content */
+        }
+
+        /* 3. HEADERS */
+        h1 {
+            font-family: 'Stack Sans Notch', sans-serif;
+            color: blue;
+            text-align: center;
+        }
+
+        .intro-text {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* 4. GRID SYSTEM - This makes them stack side-by-side */
+        .animal-grid {
+            display: flex;           /* Enables side-by-side layout */
+            flex-wrap: wrap;         /* Allows items to drop to next line */
+            gap: 20px;               /* Space between the boxes */
+            justify-content: center; /* Centers the boxes in the middle */
+        }
+
+        /* 5. INDIVIDUAL CARDS */
+        .animal-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            width: 300px;            /* Fixed width ensures they fit side-by-side */
+            text-align: center;      /* Centers text and images inside card */
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Image styling */
+        .animal-card img {
+            width: 100%;             /* Image fits the card width */
+            height: 200px;           /* Keeps all images same height */
+            object-fit: cover;       /* Crops image nicely so it doesn't stretch */
+            border-radius: 5px;
+        }
+
+        /* Link styling */
+        a { text-decoration: none; color: inherit; }
+        h2 { margin: 10px 0; font-size: 1.5em; color: black; }
+        
+        /* Video Section specific style */
+        .video-section {
+            width: 100%; /* Video section takes full width at bottom */
+            text-align: center;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 
-<body style="font-family: Arial;">
+<body>
+
     <div id="navbar"></div>
     <script>
       fetch("navbar.html")
@@ -19,56 +89,69 @@
         });
     </script>
 
-    <div><font face="Stack Sans Notch" color="blue"><h1>Animals</h1></font></div>
-    <font face="Roboto" color="blue"><p>Explore various animals and their characteristics.</p></font>
-    <ul>
-        <li><font face="Roboto" color="black" size="4">Lion</font></li>
-        <li><font face="Roboto" color="black" size="4">Tiger</font></li>
-        <li><font face="Roboto" color="black" size="4">Elephant</font></li>
-        <li><font face="Roboto" color="black" size="4">Giraffe</font></li>
-        <li><font face="Roboto" color="black" size="4">Zebra</font></li>
-        <li><font face="Roboto" color="black" size="4">Monkey</font></li>
-    </ul>
-    <a href="https://en.wikipedia.org/wiki/Lion"><h2><font face="Roboto" color="black" size="6">Lion</font></h2></a>
-    <div style="display: flex; justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/JMdrJoyMv5UAAAAC/aslan-roar.gif" alt="Lion" width="300"></div>
-    <p>The lion is known as the king of the jungle. It is a large carnivorous feline with a majestic mane.</p>
-    <hr>
+    <div class="main-content">
+        <h1>Animals Gallery</h1>
+        <p class="intro-text">Explore various animals and their characteristics.</p>
 
+        <div class="animal-grid">
 
-    <a href="https://en.wikipedia.org/wiki/Tiger"><h2><font face="Roboto" color="black" size="6">Tiger</font></h2></a>
-    <div style="display: flex; justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/Jbkhm4x1TAUAAAAd/roaming-tiger-tigers101.gif" alt="Tiger" width="300"></div>
-    <p>The tiger is the largest species among the Felidae and is recognizable for its pattern of dark vertical stripes on reddish-orange fur.</p>
-    <hr>
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Lion">
+                    <h2>Lion</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/JMdrJoyMv5UAAAAC/aslan-roar.gif" alt="Lion">
+                <p>The lion is known as the king of the jungle. It is a large carnivorous feline with a majestic mane.</p>
+            </div>
 
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Tiger">
+                    <h2>Tiger</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/Jbkhm4x1TAUAAAAd/roaming-tiger-tigers101.gif" alt="Tiger">
+                <p>The tiger is the largest species among the Felidae, recognizable for dark vertical stripes.</p>
+            </div>
 
-    <a href="https://en.wikipedia.org/wiki/Elephant"><h2><font face="Roboto" color="black" size="6">Elephant</font></h2></a>
-    <div style="display: flex;justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/O7Vp5LzHgmYAAAAC/elephant-african-elephant.gif" alt="Elephant" width="300"></div>
-    <p>Elephants are the largest land animals on Earth, known for their intelligence,
-    strong social bonds, and long trunks.</p>
-    <hr>
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Elephant">
+                    <h2>Elephant</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/O7Vp5LzHgmYAAAAC/elephant-african-elephant.gif" alt="Elephant">
+                <p>Elephants are the largest land animals on Earth, known for their intelligence and trunks.</p>
+            </div>
 
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Giraffe">
+                    <h2>Giraffe</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/wWSu4nZGL3EAAAAC/giraffe-chewing.gif" alt="Giraffe">
+                <p>The giraffe is the tallest living terrestrial animal, famous for its long neck and legs.</p>
+            </div>
 
-    <a href="https://en.wikipedia.org/wiki/Giraffe"><h2><font face="Roboto" color="black" size="6">Giraffe</font></h2></a>
-    <div style="display: flex; justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/wWSu4nZGL3EAAAAC/giraffe-chewing.gif" alt="Giraffe" width="300"></div>
-    <p>The giraffe is the tallest living terrestrial animal, famous for its long neck and legs.</p>
-    <hr>
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Zebra">
+                    <h2>Zebra</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/NUDnN3Uj20QAAAAC/zebra-zebras.gif" alt="Zebra">
+                <p>Zebras are known for their distinctive black and white striped coats used for camouflage.</p>
+            </div>
 
+            <div class="animal-card">
+                <a href="https://en.wikipedia.org/wiki/Monkey">
+                    <h2>Monkey</h2>
+                </a>
+                <img src="https://media1.tenor.com/m/7HYOnFr3-aIAAAAd/sad-sad-monkey.gif" alt="Monkey">
+                <p>Monkeys are intelligent primates known for their agility and playful behavior.</p>
+            </div>
 
-    <a href="https://en.wikipedia.org/wiki/Zebra"><h2><font face="Roboto" color="black" size="6">Zebra</font></h2></a>
-    <div style="display: flex; justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/NUDnN3Uj20QAAAAC/zebra-zebras.gif" alt="Zebra" width="300"></div>    
-    <p>Zebras are known for their distinctive black and white striped coats, which help them camouflage in the wild.</p>
-    <hr>
+        </div> <div class="video-section">
+            <a href="https://en.wikipedia.org/wiki/Animals_video">
+                <h2>Animals Video</h2>
+            </a>
+            <video width="640" height="380" controls>
+                <source src="./animals.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
 
-
-    <a href="https://en.wikipedia.org/wiki/Monkey"><h2><font face="Roboto" color="black" size="6">Monkey</font></h2></a>
-    <div style="display: flex; justify-content: center; align-items: center;"><img src="https://media1.tenor.com/m/7HYOnFr3-aIAAAAd/sad-sad-monkey.gif" alt="Monkey" width="300"></div>
-    <p>Monkeys are intelligent primates known for their agility and playful behavior.</p>
-    <hr>
-
-    <a href="https://en.wikipedia.org/wiki/Animals_video"><h2><font face="Roboto" color="black" size="6">Animals Video</font></h2></a>
-    
-    <div style="display: flex; justify-content: center; align-items: center;">
-        <video width="640" height="380" controls><source src="./animals.mp4" type="video/mp4"></video></div>
-
-</body>
+    </div> </body>
 </html>
