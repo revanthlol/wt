@@ -1,93 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Selectors Assignment</title>
     <style>
-        /* 1. Universal Selector (*) 
-           Sets the font for everything. */
-        * {
-           font-family: Arial, sans-serif;
-        }
+      * {
+        font-family: Arial, sans-serif;
+      }
 
-        /* 2. Group Selector (h1, h2) 
-           Styles both headers at the same time. */
-        h1, h2 {
-            text-decoration: underline;
-            color: purple;
-            text-align: center;
-        }
+      h1,
+      h2 {
+        text-decoration: underline;
+        color: purple;
+        text-align: center;
+      }
 
-        /* 3. Element Selector (p) 
-           Styles all paragraphs blue. */
-        p {
-            color: blue;
-            font-size: 18px;
-        }
+      p {
+        color: blue;
+        font-size: 18px;
+      }
 
-        /* 4. Class Selector (.demo-box) 
-           Adds a green border. Used multiple times. */
-        .demo-box {
-            border: 5px solid green;
-            padding: 20px;
-            margin: 20px;
-            background-color: #eaffea; /* Light green background */
-            color: black; /* Overrides the blue paragraph color if inside */
-        }
+      .demo-box {
+        border: 5px solid green;
+        padding: 20px;
+        margin: 20px;
+        background-color: #eaffea;
+        color: black;
+      }
 
-        /* 5. ID Selector (#unique-box) 
-           Adds a red background. Used only once. */
-        #unique-box {
-            background-color: red;
-            color: white;
-            padding: 20px;
-            margin: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
+      #unique-box {
+        background-color: red;
+        color: white;
+        padding: 20px;
+        margin: 20px;
+        font-weight: bold;
+        text-align: center;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+      }
     </style>
-</head>
-<body style="margin: 0;">
-
+  </head>
+  <body style="margin: 0">
     <div id="navbar"></div>
     <script>
-        fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar").innerHTML = data;
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
         });
     </script>
 
-    <h1>I am an H1 Tag</h1>
-    <h2>I am an H2 Tag</h2>
-    <p style="text-align: center; color: black;">(We both have the same purple color and underline because of the <b>Group Selector</b>)</p>
-    
-    <hr>
+    <div class="container">
+      <h1>This is the H1 Tag</h1>
+      <h2>This is the H2 Tag</h2>
+      <p style="text-align: center; color: black">
+        (Both have the same purple color and underline because of the
+        <b>Group Selector</b>)
+      </p>
 
-    <p>I am a standard Paragraph tag.</p>
-    <p>I am blue because the <b>Element Selector (p)</b> targets all paragraphs.</p>
+      <hr />
 
-    <hr>
+      <p>This is a standard Paragraph tag.</p>
+      <p>
+        This is blue because the <b>Element Selector (p)</b> targets all
+        paragraphs.
+      </p>
 
-    <div class="demo-box">
-        <h3>Class Selector Example 1</h3>
-        I have a green border because I use the class <b>.demo-box</b>.
-    </div>
+      <hr />
 
-    <div class="demo-box">
-        <h3>Class Selector Example 2</h3>
-        I look exactly the same because I use the same class <b>.demo-box</b>. 
-        Classes are for repeated styles.
-    </div>
+      <div class="demo-box">
+        <h3>This is Class Selector Example 1</h3>
+        It has a green border because It uses the class <b>.demo-box</b>.
+      </div>
 
-    <hr>
+      <div class="demo-box">
+        <h3>This is Class Selector Example 2</h3>
+        It looks exactly the same because It uses the same class
+        <b>.demo-box</b>. Classes are for repeated styles.
+      </div>
 
-    <div id="unique-box">
-        ID Selector Example<br>
-        I am red and bold because I use the ID <b>#unique-box</b>.<br>
+      <hr />
+
+      <div id="unique-box">
+        This is ID Selector Example<br />
+        It is red and bold because It uses the ID <b>#unique-box</b>.<br />
         IDs are unique and only used once per page.
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
