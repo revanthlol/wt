@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Form</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 10px;
+        background-color: #ececec;
+      }
+
+      .container {
+        width: 300px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #ffffff;
+        border: 1px solid black;
+      }
+
+      input,select,textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
+
+      .inline-opt {
+        width: auto;
+        margin-right: 5px;
+      }
+
+      label {
+        font-weight: bold;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h3 style="text-align: center; margin-top: 0">Sign up</h3>
+
+      <form name="myForm">
+        <label>Name</label>
+        <input type="text" name="t1" />
+
+        <label>Password</label>
+        <input type="password" name="p1" />
+
+        <label>Address</label>
+        <textarea name="addr" rows="3"></textarea>
+
+        <label>Gender:</label><br />
+        <input type="radio" name="gender" value="Male" class="inline-opt" />Male
+        <br />
+        <input type="radio" name="gender" value="Female" class="inline-opt" />Female
+        <br />
+
+        <label>Course:</label><br />
+        <input type="checkbox" name="c1" value="Red" class="inline-opt" />Java
+        <input type="checkbox" name="c2" value="Pink" class="inline-opt" />DBMS
+        <br /><br />
+
+        <label>Branch:</label><br />
+        <select name="branch">
+          <option value="">--Select--</option>
+          <option>IT</option>
+          <option>CSE</option>
+        </select>
+
+        <input type="button" value="Submit" onclick="sub()" />
+      </form>
+    </div>
+    
+    <!-- script is optional -->
+     
+    <script>
+      function sub() {
+        var f = document.myForm;
+        alert("Saved Name : " + f.t1.value + "\nSaved Address : " + f.addr.value + "\nSaved Gender : " + f.gender.value + "\nSaved Course : " + f.c1.value + ", " + f.c2.value + "\nSaved Branch : " + f.branch.value);
+      }
+    </script>
+  </body>
+</html>

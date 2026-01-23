@@ -1,30 +1,130 @@
-<!-- navbar.html -->
 <style>
   .navbar {
-    background: #2c3e50;
-    padding: 15px;
+    background-color: #333;
+    color: #eee;
+    font-family: sans-serif;
+    font-size: 14px;
+    border-bottom: 6px solid #007CBA; 
+    padding: 0 10px;
+    height: 35px;
+    /* This centers the items */
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    font-family: Arial, sans-serif;
+    justify-content: center; 
+    align-items: center;
   }
-  .navbar a {
+
+  .navbar a, .dropbtn {
+    color: #eee;
     text-decoration: none;
-    color: #2c3e50;
-    background: #ffffff;
-    padding: 10px 20px;
-    border-radius: 7px;
+    padding: 0 15px;
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: sans-serif;
+    font-size: 14px;
+  }
+
+  .navbar a:hover, .dropdown:hover .dropbtn {
+    background-color: #444;
+    color: white;
+  }
+
+  .dropdown { position: relative; display: inline-block; }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f6f9fc;
+    min-width: 180px;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    top: 35px;
+    left: 0; /* Left align to the button */
+    box-shadow: 0 4px 5px rgba(0,0,0,0.1);
+    text-align: left; /* Ensure text inside dropdown is left-aligned */
+  }
+
+  .dropdown-content a {
+    color: #000;
+    padding: 8px 15px;
+    display: block;
+    height: auto;
+    line-height: normal;
+    border-bottom: 1px solid #eee;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #007CBA;
+    color: white;
+  }
+
+  .dropdown:hover .dropdown-content { display: block; }
+
+  .section-title {
+    background: #e1e1e1;
+    color: #555;
     font-weight: bold;
+    font-size: 11px;
+    padding: 4px 10px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    pointer-events: none;
   }
 </style>
 
 <div class="navbar">
-  <a href="/index.html">Home</a>
-  <a href="/lab/ass1.html">Assignment 1</a>
-  <a href="/lab/ass2.html">Assignment 2</a>
-  <a href="/lab/ass3.html">Assignment 3</a>
-  <a href="/lab/animal.html">Animals</a>
-  <a href="/lab/resume.html">Resume</a>
-  <a href="/lab/selectors.html">Selectors</a>
+  <a href="index.html" class="nav-link home-link">Home</a>
+
+  <div class="dropdown">
+    <button class="dropbtn">Lab Work</button>
+    <div class="dropdown-content">
+      <a href="lab/ass1.html" class="nav-link">Assignment 1</a>
+      <a href="lab/ass2.html" class="nav-link">Assignment 2</a>
+      <a href="lab/ass3.html" class="nav-link">Assignment 3</a>
+      <a href="lab/animal.html" class="nav-link">Animals</a>
+      <a href="lab/resume.html" class="nav-link">Resume</a>
+      <a href="lab/selectors.html" class="nav-link">Selectors</a>
+    </div>
+  </div>
+
+  <div class="dropdown">
+    <button class="dropbtn">Notes</button>
+    <div class="dropdown-content">
+      <div class="section-title">Mid 1</div>
+      <a href="notes/mid1/forms.html" class="nav-link">Forms</a>
+      <a href="notes/mid1/lists.html" class="nav-link">Lists</a>
+      <a href="notes/mid1/table.html" class="nav-link">Table</a>
+      <a href="notes/mid1/selectors.html" class="nav-link">Selectors</a>
+    </div>
+  </div>
 </div>
+
+<script>
+  (function() {
+    var path = window.location.pathname;
+    var prefix = "";
+
+    if (path.includes("/lab/") || (path.includes("/notes/") && !path.includes("/mid"))) {
+        prefix = "../";
+    } else if (path.includes("/mid1/") || path.includes("/mid2/")) {
+        prefix = "../../";
+    }
+
+    var links = document.getElementsByClassName("nav-link");
+    for (var i = 0; i < links.length; i++) {
+        var link = links[i];
+        var href = link.getAttribute("href");
+        
+        if (!href.startsWith("http") && !href.startsWith("#")) {
+            link.setAttribute("href", prefix + href);
+        }
+
+        if (href.includes("notes/")) {
+            link.setAttribute("target", "_blank");
+        }
+    }
+  })();
+</script>

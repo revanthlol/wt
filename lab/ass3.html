@@ -31,11 +31,35 @@
   </body>
     <button onclick="start()">Start Program</button>
     <script>
-      fetch("../navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
-        });
+      // Try to fetch navbar from current folder, then parent, then grand-parent
+      const paths = ["navbar.html", "../navbar.html", "../../navbar.html"];
+      
+      function loadNav(index) {
+        if (index >= paths.length) return; // Stop if not found
+        
+        fetch(paths[index])
+          .then(response => {
+            if (response.ok) return response.text();
+            throw new Error("Not found");
+          })
+          .then(data => {
+            document.getElementById("navbar").innerHTML = data;
+            
+            // Re-execute scripts inside navbar (like the Magic Path Fixer)
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(data, 'text/html');
+            const scripts = doc.querySelectorAll('script');
+            scripts.forEach(oldScript => {
+              const newScript = document.createElement('script');
+              newScript.textContent = oldScript.textContent;
+              document.body.appendChild(newScript);
+            });
+          })
+          .catch(() => loadNav(index + 1)); // Try next path if failed
+      }
+
+      loadNav(0);
+
       function start() {
         while (true) {
           var c = prompt(
