@@ -1,13 +1,11 @@
 # wt
 
-dump for my web tech lab assignments and notes. 
-
-if you aren't my faculty or a classmate, this probably isn't for you. it's just basic html/css/js stuff for college. move along.
+its just a lazy dump of my web tech lab crap – assignments, notes, whatever. Only reason this exists is to sync my junk between the lab PCs and mine. If you're not my prof or some classmate of mine, MOVE ALONG ,this ain't for you.
 
 ### structure
-* **lab/** - assignments (1-3), resume generator, random tasks.
-* **notes/** - mid 1 prep (forms, lists, tables, css).
-* **index.html** - main dashboard to view everything.
+* **lab/** - The usual assignments (1-3), some resume generator BS, and some random js scripts.
+* **notes/** - mid-1 stuff (forms, lists, tables, CSS – groundbreaking, right?).
+* **index.html** - The so-called "dashboard" to navigate.
 
 ### usage
-download/clone and open `index.html`. that's it.
+Clone it or download, open `index.html`. thats it.
