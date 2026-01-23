@@ -1,197 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Assignment 3 - JavaScript</title>
+<!doctype html>
+<html>
+  <head>
+    <title>Assignment 3</title>
     <style>
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-
-
-        .grid-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-            padding: 10px;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-
-        .program-card {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 15px;
-            width: 350px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        h3 {
-            margin-top: 0;
-            color: #333;
-        }
-
-        input {
-            padding: 10px;
-            margin: 8px 0;
-            width: 80%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        button {
-            padding: 10px 20px;
-            margin-top: 10px;
-            background-color: #000000;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 50%;
-        }
-
-        .result-text {
-            color: #1caf02;
-            font-weight: bold;
-            margin-top: 15px;
-            display: block;
-            min-height: 20px;
-        }
+      body {
+        text-align: center;
+        font-family: Arial, sans-serif;
+        margin-top: 50px;
+        background-color: #f4f4f9;
+      }
+      button {
+        padding: 15px 30px;
+        font-size: 16px;
+        margin: 10px;
+        cursor: pointer;
+        background-color: #00b342;
+        color: white;
+        border: none;
+        border-radius: 5px;
+      }
+      button:hover {
+        background-color: #00b342;
+      }
     </style>
-</head>
-<body>
+  </head>
 
-    <div id="navbar"></div>
-    <script>
-        fetch("navbar.html")
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById("navbar").innerHTML = data;
-        });
-    </script>
+  <body>
+    <h2>Assignment 3: JavaScript Tasks</h2>
+    <p>Click "Start" to begin the program menu.</p>
 
-    <br>
-    <h1>Assignment 3: JavaScript Programs</h1>
-
-    <div class="grid-container">
-
-        <div class="program-card">
-            <h3>1. Find Greatest Number</h3>
-            <input type="number" id="num1" placeholder="First Number">
-            <input type="number" id="num2" placeholder="Second Number">
-            <input type="number" id="num3" placeholder="Third Number">
-            <button onclick="findGreatest()">Find Result</button>
-            <span id="ans1" class="result-text"></span>
-        </div>
-
-        <div class="program-card">
-            <h3>2. Check Grade</h3>
-            <p style="margin: 5px; color: #666;">Enter marks (0-100)</p>
-            <input type="number" id="marks" placeholder="Marks">
-            <button onclick="checkGrade()">Check Grade</button>
-            <span id="ans2" class="result-text"></span>
-        </div>
-
-        <div class="program-card">
-            <h3>3. Fibonacci Series</h3>
-            <p style="margin: 5px; color: #666;">How many terms?</p>
-            <input type="number" id="terms" placeholder="Ex: 5">
-            <button onclick="fibonacci()">Generate</button>
-            <span id="ans3" class="result-text"></span>
-        </div>
-
-        <div class="program-card">
-            <h3>4. Day of the Week</h3>
-            <p style="margin: 5px; color: #666;">Enter number (1-7)</p>
-            <input type="number" id="dayInput" placeholder="Ex: 1">
-            <button onclick="checkDay()">Show Day</button>
-            <span id="ans4" class="result-text"></span>
-        </div>
-
-    </div>
+    <button onclick="start()">Start Program</button>
 
     <script>
+      function start() {
+        while (true) {
+          var c = prompt(
+            "Select an option:\n" +
+              "1. Greatest of 3 numbers\n" +
+              "2. Check Grade\n" +
+              "3. Fibonacci Series\n" +
+              "4. Day of Week\n" +
+              "0. Exit",
+          );
 
-        function findGreatest() {
-            var n1 = parseInt(document.getElementById("num1").value);
-            var n2 = parseInt(document.getElementById("num2").value);
-            var n3 = parseInt(document.getElementById("num3").value);
-            var result = "";
+          // Break loop if user clicks Cancel or enters 0
+          if (c === null || c === "0") break;
 
-            if (isNaN(n1) || isNaN(n2) || isNaN(n3)) {
-                result = "Enter all numbers";
-            } else if (n1 > n2 && n1 > n3) {
-                result = n1;
-            } else if (n2 > n1 && n2 > n3) {
-                result = n2;
-            } else {
-                result = n3;
-            }
-            document.getElementById("ans1").innerText = "Greatest: " + result;
+          if (c === "1") greatest();
+          else if (c === "2") grade();
+          else if (c === "3") fib();
+          else if (c === "4") day();
+          else alert("Invalid selection. Please try again.");
+        }
+      }
+
+      function greatest() {
+        var a = Number(prompt("Enter First Number:"));
+        var b = Number(prompt("Enter Second Number:"));
+        var c = Number(prompt("Enter Third Number:"));
+
+        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+          alert("Please enter valid numbers.");
+        } else {
+          alert("The greatest number is: " + Math.max(a, b, c));
+        }
+      }
+
+      function grade() {
+        var m = Number(prompt("Enter Marks (0-100):"));
+
+        if (isNaN(m)) alert("Invalid input");
+        else if (m >= 90) alert("Grade: A");
+        else if (m >= 75) alert("Grade: B");
+        else if (m >= 60) alert("Grade: C");
+        else alert("Result: Fail");
+      }
+
+      function fib() {
+        var n = Number(prompt("Enter number of terms:"));
+        if (isNaN(n) || n < 1) {
+          alert("Please enter a positive number.");
+          return;
         }
 
+        var a = 0,
+          b = 1;
+        var out = "0";
 
-        function checkGrade() {
-            var m = parseInt(document.getElementById("marks").value);
-            var grade = "";
+        if (n > 1) out = out + ", 1";
 
-            if (isNaN(m)) grade = "Enter marks";
-            else if (m >= 90) grade = "A";
-            else if (m >= 75) grade = "B";
-            else if (m >= 60) grade = "C";
-            else grade = "Fail";
-
-            document.getElementById("ans2").innerText = "Grade: " + grade;
+        for (var i = 3; i <= n; i++) {
+          var c = a + b;
+          out = out + ", " + c;
+          a = b;
+          b = c;
         }
+        alert("Fibonacci Series: " + out);
+      }
 
+      function day() {
+        var d = Number(prompt("Enter Day number (1-7):"));
+        var days = [
+          "Invalid",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday",
+          "Sunday",
+        ];
 
-        function fibonacci() {
-            var n = parseInt(document.getElementById("terms").value);
-            var t1 = 0, t2 = 1, nextTerm;
-            var output = "0, 1"; 
-
-            if (isNaN(n)) {
-                document.getElementById("ans3").innerText = "Enter a number";
-                return;
-            }
-
-            for (var i = 3; i <= n; i++) {
-                nextTerm = t1 + t2;
-                output = output + ", " + nextTerm;
-                t1 = t2;
-                t2 = nextTerm;
-            }
-            document.getElementById("ans3").innerText = output;
+        if (d >= 1 && d <= 7) {
+          alert(days[d]);
+        } else {
+          alert("Invalid day number");
         }
-
-
-        function checkDay() {
-            var d = parseInt(document.getElementById("dayInput").value);
-            var dayName = "";
-
-            switch(d) {
-                case 1: dayName = "Monday"; break;
-                case 2: dayName = "Tuesday"; break;
-                case 3: dayName = "Wednesday"; break;
-                case 4: dayName = "Thursday"; break;
-                case 5: dayName = "Friday"; break;
-                case 6: dayName = "Saturday"; break;
-                case 7: dayName = "Sunday"; break;
-                default: dayName = "Invalid Input";
-            }
-            document.getElementById("ans4").innerText = dayName;
-        }
+      }
     </script>
-
-</body>
+  </body>
 </html>
