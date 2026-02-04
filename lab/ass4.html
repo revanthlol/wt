@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #161616;
+      margin : 0;
+    }
+
+    .box {
+      color: #ffffff;
+      width: 300px;
+      margin: 100px auto;
+      padding: 20px;
+      background-color: #222222;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    input {
+      background-color: #2F2F2F;
+      color: #ffffff;
+      width: 90%;
+      padding: 6px;
+      margin: 6px 0;
+      border-radius: 5px;
+      border: none;
+    }
+
+    button {
+      padding: 10px 15px;
+      margin: 4px;
+      background-color: #4CAF50;
+      color: white;
+      border-radius: 5px;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ✅ REQUIRED FOR NAVBAR -->
+  <div id="navbar"></div>
+
+  <div class="box">
+    Enter the value of A<br>
+    <input type="text" id="a"><br>
+
+    Enter the value of B<br>
+    <input type="text" id="b"><br><br>
+
+    <button onclick="add()">Add</button>
+    <button onclick="sub()">Sub</button>
+    <button onclick="mul()">Mul</button>
+    <button onclick="div()">Div</button>
+
+    <br><br>
+
+    Result<br>
+    <input type="text" id="result" readonly>
+  </div>
+
+  <script>
+    // Try to fetch navbar from current folder, then parent, then grand-parent
+    const paths = ["navbar.html", "../navbar.html", "../../navbar.html"];
+    
+    function loadNav(index) {
+      if (index >= paths.length) return;
+      
+      fetch(paths[index])
+        .then(response => {
+          if (response.ok) return response.text();
+          throw new Error("Not found");
+        })
+        .then(data => {
+          document.getElementById("navbar").innerHTML = data;
+
+          // Re-execute scripts inside navbar
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(data, 'text/html');
+          const scripts = doc.querySelectorAll('script');
+          scripts.forEach(oldScript => {
+            const newScript = document.createElement('script');
+            newScript.textContent = oldScript.textContent;
+            document.body.appendChild(newScript);
+          });
+        })
+        .catch(() => loadNav(index + 1));
+    }
+
+    // ✅ SAFE LOAD
+    document.addEventListener("DOMContentLoaded", function () {
+      loadNav(0);
+    });
+
+    function add() {
+      var a = Number(document.getElementById("a").value);
+      var b = Number(document.getElementById("b").value);
+      document.getElementById("result").value = a + b;
+    }
+
+    function sub() {
+      var a = Number(document.getElementById("a").value);
+      var b = Number(document.getElementById("b").value);
+      document.getElementById("result").value = a - b;
+    }
+
+    function mul() {
+      var a = Number(document.getElementById("a").value);
+      var b = Number(document.getElementById("b").value);
+      document.getElementById("result").value = a * b;
+    }
+
+    function div() {
+      var a = Number(document.getElementById("a").value);
+      var b = Number(document.getElementById("b").value);
+      document.getElementById("result").value = a / b;
+    }
+  </script>
+
+</body>
+</html>
