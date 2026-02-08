@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 3</title>
     <style>
       body {
@@ -17,23 +18,26 @@
         background-color: #00b342;
         color: white;
         border: none;
-        border-radius: 5px;
+        border-radius: 25px;
       }
     </style>
   </head>
 
   <body style="font-family: Arial; margin: 0">
+    
     <div id="navbar"></div>
     <h2 style="text-align: center">Assignment 3</h2>
-  </body>
+
     <button onclick="start()">Start Program</button>
+
     <script>
+      // Navbar logic
       // Try to fetch navbar from current folder, then parent, then grand-parent
       const paths = ["navbar.html", "../navbar.html", "../../navbar.html"];
-      
+
       function loadNav(index) {
-        if (index >= paths.length) return; // Stop if not found
-        
+        if (index >= paths.length) return;
+
         fetch(paths[index])
           .then(response => {
             if (response.ok) return response.text();
@@ -41,18 +45,17 @@
           })
           .then(data => {
             document.getElementById("navbar").innerHTML = data;
-            
-            // Re-execute scripts inside navbar (like the Magic Path Fixer)
+
             const parser = new DOMParser();
-            const doc = parser.parseFromString(data, 'text/html');
-            const scripts = doc.querySelectorAll('script');
+            const doc = parser.parseFromString(data, "text/html");
+            const scripts = doc.querySelectorAll("script");
             scripts.forEach(oldScript => {
-              const newScript = document.createElement('script');
+              const newScript = document.createElement("script");
               newScript.textContent = oldScript.textContent;
               document.body.appendChild(newScript);
             });
           })
-          .catch(() => loadNav(index + 1)); // Try next path if failed
+          .catch(() => loadNav(index + 1));
       }
 
       loadNav(0);
@@ -65,32 +68,36 @@
               "2. Check Grade\n" +
               "3. Fibonacci Series\n" +
               "4. Day of Week\n" +
-              "0. Exit",
+              "5. Armstrong Number\n" +
+              "6. Factorial\n" +
+              "0. Exit"
           );
 
-          // Break loop if user clicks Cancel or enters 0
           if (c === null || c === "0") break;
 
           if (c === "1") greatest();
           else if (c === "2") grade();
           else if (c === "3") fib();
           else if (c === "4") day();
+          else if (c === "5") armstrong();
+          else if (c === "6") factorial();
           else alert("Invalid selection. Please try again.");
         }
       }
 
+      // 1. Greatest of 3 numbers
       function greatest() {
         var a = Number(prompt("Enter First Number:"));
         var b = Number(prompt("Enter Second Number:"));
         var c = Number(prompt("Enter Third Number:"));
 
-        if (isNaN(a) || isNaN(b) || isNaN(c)) {
+        if (isNaN(a) || isNaN(b) || isNaN(c))
           alert("Please enter valid numbers.");
-        } else {
+        else
           alert("The greatest number is: " + Math.max(a, b, c));
-        }
       }
 
+      // 2. Check Grade
       function grade() {
         var m = Number(prompt("Enter Marks (0-100):"));
 
@@ -101,6 +108,7 @@
         else alert("Result: Fail");
       }
 
+      // 3. Fibonacci Series
       function fib() {
         var n = Number(prompt("Enter number of terms:"));
         if (isNaN(n) || n < 1) {
@@ -108,39 +116,77 @@
           return;
         }
 
-        var a = 0,
-          b = 1;
+        var a = 0, b = 1;
         var out = "0";
 
-        if (n > 1) out = out + ", 1";
+        if (n > 1) out += ", 1";
 
         for (var i = 3; i <= n; i++) {
           var c = a + b;
-          out = out + ", " + c;
+          out += ", " + c;
           a = b;
           b = c;
         }
+
         alert("Fibonacci Series: " + out);
       }
 
+      // 4. Day of Week (switch case)
       function day() {
         var d = Number(prompt("Enter Day number (1-7):"));
-        var days = [
-          "Invalid",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
-          "Sunday",
-        ];
+        var result;
 
-        if (d >= 1 && d <= 7) {
-          alert(days[d]);
-        } else {
-          alert("Invalid day number");
+        switch (d) {
+          case 1: result = "Monday"; break;
+          case 2: result = "Tuesday"; break;
+          case 3: result = "Wednesday"; break;
+          case 4: result = "Thursday"; break;
+          case 5: result = "Friday"; break;
+          case 6: result = "Saturday"; break;
+          case 7: result = "Sunday"; break;
+          default: result = "Invalid day number";
         }
+
+        alert(result);
+      }
+
+      // 5. Armstrong Number
+      function armstrong() {
+        var n = Number(prompt("Enter a number:"));
+        if (isNaN(n) || n < 0) {
+          alert("Invalid input");
+          return;
+        }
+
+        var temp = n, sum = 0;
+        var digits = n.toString().length;
+
+        while (temp > 0) {
+          var r = temp % 10;
+          sum += Math.pow(r, digits);
+          temp = Math.floor(temp / 10);
+        }
+
+        if (sum === n)
+          alert(n + " is an Armstrong number");
+        else
+          alert(n + " is NOT an Armstrong number");
+      }
+
+      // 6. Factorial
+      function factorial() {
+        var n = Number(prompt("Enter a number:"));
+        if (isNaN(n) || n < 0) {
+          alert("Invalid input");
+          return;
+        }
+
+        var fact = 1;
+        for (var i = 1; i <= n; i++) {
+          fact *= i;
+        }
+
+        alert("Factorial of " + n + " is: " + fact);
       }
     </script>
   </body>

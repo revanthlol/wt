@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Resume Form</title>
+</head>
+
+<body>
+  <h2 align="center"><u>STUDENT RESUME REGISTRATION</u></h2>
+
+  <form action="resume_submit.html" method="post" enctype="multipart/form-data">
+    <table border="1" align="center" cellpadding="6" width="75%">
+
+      <tr style="background-color: #ddd" ><th colspan="2">1. PERSONAL PROFILE</th></tr>
+      <tr>
+        <td>Full Name</td>
+        <td><input type="text" name="fname" required></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><input type="date" name="dob" required></td>
+      </tr>
+      <tr>
+        <td>Gender</td>
+        <td>
+          <input type="radio" name="gender"> Male
+          <input type="radio" name="gender"> Female
+        </td>
+      </tr>
+      <tr>
+        <td>Nationality</td>
+        <td><input type="text" name="nation"></td>
+      </tr>
+
+      <tr style="background-color: #ddd"><th colspan="2">2. CONTACT</th></tr>
+      <tr>
+        <td>Mobile</td>
+        <td><input type="tel" name="phone"></td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td><input type="email" name="email"></td>
+      </tr>
+
+      <tr style="background-color: #ddd"><th colspan="2">3. ACADEMICS</th></tr>
+      <tr>
+        <td>Qualification</td>
+        <td>
+          <select name="degree">
+            <option>B.Tech</option>
+            <option>M.Tech</option>
+            <option>MBA</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>College</td>
+        <td><input type="text" name="college"></td>
+      </tr>
+
+      <tr style="background-color: #ddd"><th colspan="2">4. SKILLS</th></tr>
+      <tr>
+        <td>Technical Skills</td>
+        <td>
+          <input type="checkbox"> C
+          <input type="checkbox"> Java
+          <input type="checkbox"> Python
+        </td>
+      </tr>
+
+      <tr style="background-color: #ddd"><th colspan="2">5. PROJECT</th></tr>
+      <tr>
+        <td>Project Title</td>
+        <td><input type="text" name="project"></td>
+      </tr>
+      <tr>
+        <td>Description</td>
+        <td><textarea rows="3"></textarea></td>
+      </tr>
+
+      <tr style="background-color: #ddd"><th colspan="2">6. ATTACHMENTS</th></tr>
+      <tr>
+        <td>Resume</td>
+        <td><input type="file"></td>
+      </tr>
+
+      <tr style="background-color: #ddd">
+        <td colspan="2" align="center">
+          <input style="color: white; background-color: #4CAF50;" type="submit" value="Submit">
+          <input style="color: white; background-color: #4CAF50;" type="reset" value="Clear">
+        </td>
+      </tr>
+
+    </table>
+  </form>
+</body>
+</html>
